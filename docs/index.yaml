@@ -3,6 +3,18 @@ entries:
   prime:
   - apiVersion: v2
     appVersion: 0.0.0
+    created: "2023-04-14T15:51:44.474985636-03:00"
+    description: A Helm chart for Kubernetes
+    digest: 206b634e69cc3551d4f8afe4013347a933d4330d59bb84f211a42669c9b8dde7
+    name: prime
+    sources:
+    - https://github.com/udhos/prime
+    type: application
+    urls:
+    - https://udhos.github.io/prime/prime-0.4.0.tgz
+    version: 0.4.0
+  - apiVersion: v2
+    appVersion: 0.0.0
     created: "2023-04-14T12:34:06.283171333-03:00"
     description: A Helm chart for Kubernetes
     digest: fc7343ed1d33fcb2057f8231876698ec1f9d3e98a6435d6c4459eff4a86d399c
@@ -49,4 +61,4 @@ entries:
     urls:
     - https://udhos.github.io/prime/prime-0.1.0.tgz
     version: 0.1.0
-generated: "2023-04-14T12:34:06.281559006-03:00"
+generated: "2023-04-14T15:51:44.472311889-03:00"
