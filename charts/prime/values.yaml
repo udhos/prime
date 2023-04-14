@@ -86,6 +86,7 @@ autoscaling:
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
+  apiVersion: autoscaling/v2
 
 nodeSelector: {}
 
