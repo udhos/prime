@@ -51,6 +51,12 @@ Build recipe:
 docker push udhos/prime:0.0.0
 ```
 
+## Helm chart
+
+### Using the repository
+
+See https://udhos.github.io/prime/.
+
 ### Create
 
 ```
