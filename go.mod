@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/jbarham/primegen v0.0.0-20200302115600-8ce4838491a0
-	github.com/udhos/boilerplate v0.10.0
+	github.com/udhos/boilerplate v1.0.1
 )
 
 require (
@@ -34,5 +34,5 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/sts v1.18.7 // indirect
 	github.com/aws/smithy-go v1.13.5 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
-	gopkg.in/yaml.v2 v2.2.8 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

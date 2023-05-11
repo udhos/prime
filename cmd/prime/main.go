@@ -9,7 +9,6 @@ import (
 	"os"
 	"path"
 	"path/filepath"
-	"runtime"
 	"strconv"
 	"time"
 
@@ -17,15 +16,9 @@ import (
 
 	"github.com/udhos/boilerplate/boilerplate"
 	"github.com/udhos/boilerplate/envconfig"
-	"github.com/udhos/boilerplate/secret"
 )
 
-const version = "0.0.0"
-
-func getVersion(me string) string {
-	return fmt.Sprintf("%s version=%s runtime=%s boilerplate=%s GOOS=%s GOARCH=%s GOMAXPROCS=%d",
-		me, version, runtime.Version(), boilerplate.Version(), runtime.GOOS, runtime.GOARCH, runtime.GOMAXPROCS(0))
-}
+const version = "0.1.0"
 
 type appConfig struct {
 	port   string
@@ -42,7 +35,7 @@ func main() {
 	me := filepath.Base(os.Args[0])
 
 	{
-		v := getVersion(me)
+		v := boilerplate.LongVersion(me + " version=" + version)
 		if showVersion {
 			fmt.Print(v)
 			fmt.Println()
@@ -51,7 +44,7 @@ func main() {
 		log.Print(v)
 	}
 
-	env := getEnv(me)
+	env := envconfig.NewSimple(me)
 
 	app := appConfig{
 		port:   env.String("PORT", ":8080"),
@@ -74,23 +67,6 @@ func main() {
 	go listenAndServe(server, app.port)
 
 	<-chan struct{}(nil)
-}
-
-func getEnv(me string) *envconfig.Env {
-	roleArn := os.Getenv("SECRET_ROLE_ARN")
-
-	log.Printf("SECRET_ROLE_ARN='%s'", roleArn)
-
-	secretOptions := secret.Options{
-		RoleSessionName: me,
-		RoleArn:         roleArn,
-	}
-	secret := secret.New(secretOptions)
-	envOptions := envconfig.Options{
-		Secret: secret,
-	}
-	env := envconfig.New(envOptions)
-	return env
 }
 
 func register(mux *http.ServeMux, addr, path string, handler http.HandlerFunc) {
