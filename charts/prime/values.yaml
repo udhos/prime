@@ -69,6 +69,10 @@ ingress:
   #    hosts:
   #      - chart-example.local
 
+# add custom labels to deployment pods
+customLabels:
+  app: prime
+
 resources:
   requests:
     cpu: 300m
@@ -76,7 +80,7 @@ resources:
     ephemeral-storage: 100Mi
   limits:
     cpu: 2000m
-    memory: 30Mi
+    memory: 100Mi
     ephemeral-storage: 200Mi
 
 autoscaling:
